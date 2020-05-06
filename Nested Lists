@@ -1,0 +1,21 @@
+list = []
+list_range = int(input())
+
+scores = []
+
+
+for t in range(list_range):
+    name = input()
+    score = float(input())
+    scores.append(score)
+    list.append([])
+    list[t] = [name, score]
+
+print(scores)
+scores.sort()
+print(scores)
+for i in range(list_range):
+    for j in range(list_range+1):
+        a = 0
+       # if list[i][j] == min(scores)+1:
+          #  print(list[i][j-1])
