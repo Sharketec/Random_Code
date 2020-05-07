@@ -1,0 +1,24 @@
+trials = int(input())
+count = 0
+while True:
+    length_A = int(input())
+    set_A = input().split()
+    length_B = int(input())
+    set_B = input().split()
+    print(set_A)
+    print(set_B)
+    subset_A = []
+    for i in range(length_A):
+        if set_A[i] in set_B:
+            subset_A.append(set_A[i])
+
+    if subset_A == set_A:
+        print(True)
+        count+=1
+    else:
+        count+=1
+        print(False)
+
+    if count == trials:
+        break
+
