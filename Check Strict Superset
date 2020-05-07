@@ -1,0 +1,21 @@
+set_A = input().split()
+num_other_sets = int(input())
+count = 0
+while True:
+    check_set=[]
+    test_set = input().split()
+    for i in test_set:
+        if i in set_A:
+            check_set.append(i)
+    if check_set == test_set:
+        value = True
+        count+=1
+    else:
+        value = False
+        count+=1
+
+
+    if count == num_other_sets:
+        break
+print(value)
+
