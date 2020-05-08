@@ -1,0 +1,20 @@
+num_commands = int(input())
+list = []
+
+for i in range(num_commands):
+    given_command = input().split()
+    if given_command[0] == 'insert':
+        list.insert(int(given_command[1]), int(given_command[2]))
+    elif given_command[0] == 'append':
+        list.append(int(given_command[1]))
+    elif given_command[0] == 'remove':
+        if int(given_command[1]) in list:
+            list.remove(int(given_command[1]))
+    elif given_command[0] == 'sort':
+        list.sort()
+    elif given_command[0] == 'reverse':
+        list.reverse()
+    elif given_command[0] == 'pop':
+        list.pop()
+    elif given_command[0] == 'print':
+        print(list)
