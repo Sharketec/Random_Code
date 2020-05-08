@@ -1,0 +1,23 @@
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.ticker import PercentFormatter
+
+N_points = 200000
+n_bins = 20
+
+#Here we are creating the formula for the actual ditributio. YOu could use a bell curve, or like a Gaussian
+x = np.random.randn(N_points)
+y = .4 * x + np.random.randn(N_points) + 5
+
+
+#now we are making the two subplots
+fig, axs = plt.subplots(1, 2, sharey=True, figsize=(12, 6))
+plt.tight_layout()
+
+
+#here we are able to access the different subplots that we want to make
+axs[0].hist(x, bins=n_bins, color='g')
+axs[1].hist(y, bins=n_bins, color='b')
+
+
+plt.show()
