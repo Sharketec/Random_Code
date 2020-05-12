@@ -1,0 +1,36 @@
+#Not the prettest code, but it does work. Takes in a message, and then returns a list of ascii numbers. 
+#To decrypt the code it must be in the same format. meaning it must be of a list. 
+
+def encrypt(string):
+    list=[]
+    message = string.split()
+    for word in message:
+        for char in word:
+            list.append(ord(char))
+    return list
+
+
+def decrypt(message):
+    message = message.strip('[]')
+    message = message.split(', ')
+    list = []
+    for i in message:
+        list.append(chr(int(i)))
+    message = ' '.join(list)
+
+    return message
+
+if __name__ == '__main__':
+    while True:
+        choice = input('Do you want to Encrypt or Decrypt a message?: ')
+        if choice == 'Encrypt' or choice == 'encrypt':
+            message = input('What is the message you want to encrypt: ')
+            print('''This is the encrypted message: 
+                {}'''.format(encrypt(message)))
+        elif choice == 'Decrypt' or choice == 'decrypt':
+            message = input('What is the encrypted message you want to decrypt: ')
+            print(''' This is the decrpted message:
+                {}'''.format(decrypt(message)))
+        else:
+            break
+
