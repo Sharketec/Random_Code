@@ -1,0 +1,39 @@
+def Caesar_Encrypt(string):
+    list = string.split()
+    return_list = []
+    for word in list:
+        first=''
+        for char in word:
+            first += chr(ord(char) + 3)
+        return_list.append(first)
+    return ' '.join(return_list)
+
+
+def Caesar_Decrypt(message):
+    print(message)
+    list = message.split()
+    print(list)
+    return_list = []
+    for word in list:
+        first=''
+        for char in word:
+            first += chr(ord(char) - 3)
+        return_list.append(first)
+    return ' '.join(return_list)
+
+
+
+if __name__ == '__main__':
+    while True:
+        choice = input('Do you want to Encrypt or Decrypt a message?: ')
+        if choice == 'Encrypt' or choice == 'encrypt':
+            message = input('What is the message you want to encrypt: ')
+            print('''This is the encrypted message: 
+                    {}'''.format(Caesar_Encrypt(message)))
+        elif choice == 'Decrypt' or choice == 'decrypt':
+            message = input('What is the encrypted message you want to decrypt: ')
+            print(''' This is the decrpted message:
+                    {}'''.format(Caesar_Decrypt(message)))
+        else:
+            break
+
