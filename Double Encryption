@@ -1,0 +1,69 @@
+class Cipher:
+    def encrypt(string):
+        return_list = []
+        message = string.split()
+        for word in message:
+            first = []
+            for char in word:
+                first.append(ord(char))
+            return_list.append(first)
+
+        new_return_list = []
+        for list in return_list:
+            second = ''
+            for num in list:
+                second += (str(num) + ' ')
+            new_return_list.append(second)
+
+        return ' '.join(new_return_list)
+
+    def decrypt(message):
+        return_list = []
+        new_list = message.split()
+
+        for num in new_list:
+            return_list.append(chr(int(num)))
+        return ' '.join(return_list)
+
+
+class Caesar_Cipher:
+    def Caesar_Encrypt(string):
+        list = string.split()
+        return_list = []
+        for word in list:
+            first = ''
+            for char in word:
+                first += chr(ord(char) + 3)
+            return_list.append(first)
+        return ' '.join(return_list)
+
+    def Caesar_Decrypt(message):
+        list = message.split()
+        return_list = []
+        for word in list:
+            first = ''
+            for char in word:
+                first += chr(ord(char) - 3)
+            return_list.append(first)
+        return ' '.join(return_list)
+
+
+if __name__ == '__main__':
+    while True:
+        choice = input('Do you want to Encrypt or Decrypt a message?: ')
+        if choice == 'Encrypt' or choice == 'encrypt':
+            message = input('What is the message that you want to encrypt: ')
+            first = Caesar_Cipher.Caesar_Encrypt(message)
+            second = Cipher.encrypt(first)
+            print('''Here is the fully, doubly, encrypted message:
+                {}
+            '''.format(second))
+        elif choice == 'Decrypt' or choice == 'decrypt':
+            message = input("What is the message that you want to decrypt: ")
+            first_D = Cipher.decrypt(message)
+            second_D = Caesar_Cipher.Caesar_Decrypt(first_D)
+            print('''Here if the fully decrypted message:
+                {}
+            '''.format(second_D))
+        else:
+            break
