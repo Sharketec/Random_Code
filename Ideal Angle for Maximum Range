@@ -1,0 +1,39 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import math
+
+# we want to show that for a canon that, the optimize angle is going to be 45 degrees by plotting the different ranges for a
+# projectile between 0 and 90 degrees
+
+g = 9.8  # m/s^2
+v = 20000  # m/s
+
+xAxis = []
+yAxis = []
+for i in range(0, 91, 1): xAxis.append(i)
+
+
+def Max_Range(T):
+    T = (T*math.pi)/180
+    R = ((v ^ 2) / g) * math.sin(2 * T)
+    return R
+
+Max_angle = 0
+
+for y in range(0, 91, 1):
+    yAxis.append(Max_Range(y))
+    if Max_Range(y+1) > Max_Range(y):
+        Max_angle = y+1
+print(yAxis)
+print(Max_angle)
+
+plt.figure(figsize=(8, 8))
+plt.plot(xAxis, yAxis, c='b', marker='.', label='The Angle for the Maximum Range is ' + str(Max_angle))
+#plt.axis([0, 80, 0, 0.065])
+plt.ylabel('Maximum Range')
+plt.xlabel('Angle of Projectile')
+plt.legend()
+#plt.title('Maxwell-Boltzmann Distribution for a Temperature of Kelvin')
+plt.grid(linestyle='-.', alpha=.8)
+plt.style.use('dark_background')
+plt.show()
